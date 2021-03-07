@@ -9,9 +9,21 @@
   <input type="submit" value="Submit">
 </form>-->
 
+<!-- 
 <%= form_tag('/users') do -%>
-	<%= text_field_tag 'username' %>
-	<%= email_field_tag 'email' %>
-	<%= password_field_tag 'password' %>
-	<%= submit_tag %>
-<% end -%>
+  <%= text_field_tag 'username' %>
+  <%= email_field_tag 'email' %>
+  <%= password_field_tag 'password' %>
+  <%= submit_tag %>
+<% end -%>-->
+
+<h1>Create User</h1>
+<%= form_with model: @user do |form| %>
+  <%= form.label :username, "Username: "%>
+	<%= form.text_field :username %>
+  <%= form.label :email, "Email: "%>
+	<%= form.email_field :email, placeholder: "example@example.com" %>
+  <%= form.label :password, "Password: "%>
+	<%= form.password_field :password %>
+	<%= form.submit "Create" %>
+<% end %>
